@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed";
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-rows: 12vh 83vh 5vh;
+  grid-template-areas: "header" "main" "footer";
+  position: relative;
+}
+
+/* MODAL */
+.modal {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  visibility: hidden;
+}
+
+.form {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr;
+  width: 25%;
+  height: 60%;
+  background-color: #024550;
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  align-content: space-evenly;
+  margin-top: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 1.3rem;
+}
+
+.field input {
+  width: inherit;
+  height: 45%;
+  font-size: 1.25rem;
+  color: rgb(68, 68, 68);
+  outline: #ea7f15;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btn {
+  height: 55%;
+  width: 40%;
+  font-size: 1.5rem;
+  background-color: #ff8c00;
+  border: #ff8c00;
+  color: white;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 10px #dbdbdb;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  background-color: #024550;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.logo {
+  height: 6rem;
+  width: 6rem;
+  margin-right: 25px;
+}
+
+h1 {
+  font-size: 2.125rem;
+}
+
+/* MAIN */
+.main {
+  grid-area: main;
+  /* background-color: orangered; */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(500px, 1fr));
+  grid-template-rows: repeat(3, minmax(500px, 1fr));
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+/* CARD */
+.book {
+  width: 75%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  grid-template-rows: 0.3fr 0.2fr 0.35fr;
+  border: 2px solid black;
+  border-radius: 7px;
+  /* background-color: greenyellow; */
+  grid-template-areas: "info return" "publishing return" "rating return";
+  padding: 0.75rem;
+  align-content: space-evenly;
+}
+
+/* BOOK INFO */
+.book-info {
+  grid-area: info;
+  /* background-color: yellow; */
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "title pages" "author pages";
+}
+
+.title {
+  font-size: 1.5rem;
+  grid-area: title;
+  margin-bottom: 0.25rem;
+}
+
+.author {
+  grid-area: author;
+}
+
+.author p {
+  font-size: 1.25rem;
+}
+
+.pages {
+  grid-area: pages;
+  font-weight: 700;
+  font-size: 1.25rem;
+  justify-self: end;
+}
+
+/* PUBLISHING */
+.publishing {
+  grid-area: publishing;
+  /* background-color: blueviolet; */
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.publishing svg {
+  width: 30px;
+  height: 20px;
+  align-self: baseline;
+}
+
+/* RATING */
+.rating {
+  grid-area: rating;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  margin-right: 5px;
+  /* background-color: red; */
+  display: flex;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+}
+
+/* STATUS */
+.return {
+  grid-area: return;
+  /* background-color: rgb(43, 226, 98); */
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.return p {
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+}
+
+.return select {
+  width: 80%;
+  font-size: 1.065rem;
+  text-align: center;
+}
+
+/* ADD BUTTON */
+.add {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 2.5rem;
+  margin-bottom: 1.95rem;
+  background-color: inherit;
+
+  border-radius: 30px;
+  transition: transform 0.5s;
+  fill: #024550;
+}
+
+.add:hover {
+  transform: translateY(-2px);
+}
+
+.add:active {
+  transform: translateY(4px);
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #024550;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 100%;
+  color: #fff;
+}
+
+.footer svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+  fill: #fff;
+}
