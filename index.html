@@ -14,6 +14,10 @@
     />
   </head>
   <body>
+    <!-- OVERLAY -->
+    <div class="overlay">
+      <div class="close">X</div>
+    </div>
     <!-- HEADER -->
     <header class="header">
       <img
@@ -28,492 +32,194 @@
     <div class="modal">
       <form action="" class="form">
         <!-- BOOK TITLE -->
+
         <div class="field">
-          <label for="book-title" class="book-title">TITLE</label>
+          <label for="book-title" class="book-title"
+            >TITLE <span class="asterisk">*</span></label
+          >
           <input type="text" id="book-title" required />
         </div>
 
         <!-- BOOK AUTHOR -->
         <div class="field">
-          <label for="book-author" class="book-author">AUTHOR</label>
+          <label for="book-author" class="book-author"
+            >AUTHOR <span class="asterisk">*</span></label
+          >
           <input type="text" id="book-author" required />
+        </div>
+
+        <!-- FORMAT -->
+        <div class="field">
+          <label for="book-format" class="book-format"
+            >FORMAT <span class="asterisk">*</span></label
+          >
+          <select name="format" id="book-format" required>
+            <option value="" selected></option>
+            <option value="pdf">PDF</option>
+            <option value="book">Book</option>
+          </select>
         </div>
 
         <!-- NUMBER OF PAGES -->
         <div class="field">
-          <label for="page-count">NUMBER OF PAGES</label>
+          <label for="page-count"
+            >NUMBER OF PAGES <span class="asterisk">*</span></label
+          >
           <input type="number" id="page-count" required />
         </div>
 
         <!-- Publishing Date -->
         <div class="field">
-          <label for="publishing-date">PUBLISHING DATE</label>
+          <label for="publishing-date"
+            >PUBLISHING DATE <span class="asterisk">*</span></label
+          >
           <input type="date" id="publishing-date" required />
         </div>
 
         <!-- Buttons -->
         <div class="btns">
-          <input type="submit" class="btn btn-add" />
-          <input type="reset" class="btn btn-clear" />
+          <input type="submit" class="btn btn-submit" />
+          <input type="reset" class="btn btn-reset" />
         </div>
       </form>
     </div>
 
     <!-- MAIN -->
     <main class="main">
-      <div class="book">
+      <div class="card">
         <!-- BOOK INFO -->
-        <div class="book-info">
-          <h2 class="title">Title</h2>
-          <div class="author">
-            <p>by <span class="author-name">&nbsp;</span></p>
+        <div class="book">
+          <div class="book-info">
+            <h2 class="title">Title</h2>
+            <div class="author">
+              <p>by <span class="author-name">&nbsp;</span></p>
+            </div>
+            <p class="pages">Pages: <span class="count">&nbsp;</span></p>
           </div>
-          <p class="pages">Pages: <span class="count">&nbsp;</span></p>
-        </div>
-
-        <!-- PUBLISHING -->
-        <div class="publishing">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
-            />
-          </svg>
-          <p>
-            <span class="format">Book</span>, <span class="year">2026</span>
-          </p>
-        </div>
-
-        <!-- RATING -->
-        <div class="rating">
-          <div class="stars">
+          <!-- PUBLISHING -->
+          <div class="publishing">
             <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
               viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
+                d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
               />
             </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
+            <p>
+              <span class="book-type">Book</span>,
+              <span class="year">2026</span>
+            </p>
           </div>
-          <div class="score">
-            <label for="score-select">Rate this</label>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              class="arrow"
-            >
-              <path
-                d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
-              />
-            </svg>
-            <!-- 
-            <select name="scores" id="score-select">
-              <option value="none"></option>
-              <option value="0.5">0.5 stars</option>
-              <option value="1">1 stars</option>
-              <option value="1.5">1.5 stars</option>
-              <option value="2">2 stars</option>
-              <option value="2.5">2.5 stars</option>
-              <option value="3">3 stars</option>
-              <option value="3.5">3.5 stars</option>
-              <option value="4">4 stars</option>
-              <option value="4.5">4.5 stars</option>
-              <option value="5">5 stars</option>
-            </select> -->
-          </div>
-        </div>
 
-        <!-- RETURNED INFO -->
-        <div class="return">
-          <p>Returned on: <span class="date">&nbsp;</span></p>
-          <div class="select-container">
-            <select name="status" class="select-box">
-              <option value="completed">Completed</option>
-              <option value="not-started">Not Started</option>
-              <option value="in-progress">In Progress</option>
-            </select>
+          <!-- RETURNED INFO -->
+          <div class="return">
+            <p>Returned on: <span class="date">&nbsp;</span></p>
+            <div class="select-container">
+              <select name="status" class="select-box">
+                <option value="completed">Completed</option>
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="book">
+      <div class="card">
         <!-- BOOK INFO -->
-        <div class="book-info">
-          <h2 class="title">Title</h2>
-          <div class="author">
-            <p>by <span class="author-name">&nbsp;</span></p>
+        <div class="book">
+          <div class="book-info">
+            <h2 class="title">Title</h2>
+            <div class="author">
+              <p>by <span class="author-name">&nbsp;</span></p>
+            </div>
+            <p class="pages">Pages: <span class="count">&nbsp;</span></p>
           </div>
-          <p class="pages">Pages: <span class="count">&nbsp;</span></p>
-        </div>
 
-        <!-- PUBLISHING -->
-        <div class="publishing">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
-            />
-          </svg>
-          <p>
-            <span class="format">Book</span>, <span class="year">2026</span>
-          </p>
-        </div>
+          <!-- PUBLISHING -->
+          <div class="publishing">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
+              />
+            </svg>
+            <p>
+              <span class="book-type">Book</span>,
+              <span class="year">2026</span>
+            </p>
+          </div>
 
-        <!-- RATING -->
-        <div class="rating">
-          <div class="stars">
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
+          <!-- RETURNED INFO -->
+          <div class="return">
+            <p>Returned on: <span class="date">&nbsp;</span></p>
+            <div class="select-container">
+              <select name="status" class="select-box">
+                <option value="completed">Completed</option>
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+              </select>
+            </div>
           </div>
-          <div class="score">
-            <label for="score-select">Rate this</label>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              class="arrow"
-            >
-              <path
-                d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
-              />
-            </svg>
-            <!-- 
-            <select name="scores" id="score-select">
-              <option value="none"></option>
-              <option value="0.5">0.5 stars</option>
-              <option value="1">1 stars</option>
-              <option value="1.5">1.5 stars</option>
-              <option value="2">2 stars</option>
-              <option value="2.5">2.5 stars</option>
-              <option value="3">3 stars</option>
-              <option value="3.5">3.5 stars</option>
-              <option value="4">4 stars</option>
-              <option value="4.5">4.5 stars</option>
-              <option value="5">5 stars</option>
-            </select> -->
-          </div>
-        </div>
-
-        <!-- RETURNED INFO -->
-        <div class="return">
-          <p>Returned on: <span class="date">&nbsp;</span></p>
-          <div class="select-container">
-            <select name="status" class="select-box">
-              <option value="completed">Completed</option>
-              <option value="not-started">Not Started</option>
-              <option value="in-progress">In Progress</option>
-            </select>
-          </div>
-        </div>
-        <div class="return">
-          <p>Returned on: <span class="date">&nbsp;</span></p>
-          <div class="select-container">
-            <select name="status" class="select-box">
-              <option value="completed">Completed</option>
-              <option value="not-started">Not Started</option>
-              <option value="in-progress">In Progress</option>
-            </select>
+          <div class="return">
+            <p>Returned on: <span class="date">&nbsp;</span></p>
+            <div class="select-container">
+              <select name="status" class="select-box">
+                <option value="completed">Completed</option>
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="book">
+      <div class="card">
         <!-- BOOK INFO -->
-        <div class="book-info">
-          <h2 class="title">Title</h2>
-          <div class="author">
-            <p>by <span class="author-name">&nbsp;</span></p>
+        <div class="book">
+          <div class="book-info">
+            <h2 class="title">Title</h2>
+            <div class="author">
+              <p>by <span class="author-name">&nbsp;</span></p>
+            </div>
+            <p class="pages">Pages: <span class="count">&nbsp;</span></p>
           </div>
-          <p class="pages">Pages: <span class="count">&nbsp;</span></p>
-        </div>
 
-        <!-- PUBLISHING -->
-        <div class="publishing">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
-            />
-          </svg>
-          <p>
-            <span class="format">Book</span>, <span class="year">2026</span>
-          </p>
-        </div>
-
-        <!-- RATING -->
-        <div class="rating">
-          <div class="stars">
+          <!-- PUBLISHING -->
+          <div class="publishing">
             <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
               viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
+                d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z"
               />
             </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                fill-rule="nonzero"
-              />
-            </svg>
+            <p>
+              <span class="book-type">Book</span>,
+              <span class="year">2026</span>
+            </p>
           </div>
-          <div class="score">
-            <label for="score-select">Rate this</label>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              class="arrow"
-            >
-              <path
-                d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
-              />
-            </svg>
-            <!-- 
-            <select name="scores" id="score-select">
-              <option value="none"></option>
-              <option value="0.5">0.5 stars</option>
-              <option value="1">1 stars</option>
-              <option value="1.5">1.5 stars</option>
-              <option value="2">2 stars</option>
-              <option value="2.5">2.5 stars</option>
-              <option value="3">3 stars</option>
-              <option value="3.5">3.5 stars</option>
-              <option value="4">4 stars</option>
-              <option value="4.5">4.5 stars</option>
-              <option value="5">5 stars</option>
-            </select> -->
-          </div>
-        </div>
 
-        <!-- RETURNED INFO -->
-        <div class="return">
-          <p>Returned on: <span class="date">&nbsp;</span></p>
-          <div class="select-container">
-            <select name="status" class="select-box">
-              <option value="completed">Completed</option>
-              <option value="not-started">Not Started</option>
-              <option value="in-progress">In Progress</option>
-            </select>
+          <!-- RETURNED INFO -->
+          <div class="return">
+            <p>Returned on: <span class="date">&nbsp;</span></p>
+            <div class="select-container">
+              <select name="status" class="select-box">
+                <option value="completed">Completed</option>
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
