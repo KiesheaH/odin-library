@@ -1,53 +1,45 @@
 "use strict";
 
 /* DOM ELEMENTS */
-const overlay = document.querySelector(".overlay");
-const form = document.querySelector(".form");
-const readStatus = document.querySelector(".select-box");
-const book = document.querySelector(".book");
-
-/* BUTTONS */
+const main = document.querySelector(".main");
 const addButton = document.querySelector(".add");
-const closeButton = document.querySelector(".close");
-const submitButton = document.querySelector(".submit");
 
-/* EVENT LISTENERS */
 addButton.addEventListener("click", function () {
-  overlay.classList.add("active");
-  form.classList.add("active");
+  const bookElement = document.createElement("div");
+  bookElement.classList.add("book");
+  main.appendChild(bookElement);
 });
-
-closeButton.addEventListener("click", function () {
-  overlay.classList.remove("active");
-  form.classList.remove("active");
-});
-
-/* GLOBAL ELEMENTS */
-const books = [];
 
 /* OBJECT CONSTRUCTOR */
-function Book(title, author, pages, read) {
+function Book(title, author, format, pages, publishing) {
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
   }
   this.title = title;
   this.author = author;
+  this.format = format;
   this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    console.log(
-      `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`,
-    );
-  };
+  this.publishing = publishing;
+  // this.read = read;
+  // this.info = function () {
+  //   console.log(
+  //     `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`,
+  //   );
+  // };
 }
 
-const perfectMurder = new Book(
-  "Happy Gilmore",
-  "Teresa Adams",
-  500,
-  "not read",
-);
+/* ARRAY POPULATION */
+function addBookToLibrary(book) {
+  library.push(book);
+}
 
-perfectMurder.info();
+// const perfectMurder = new Book(
+//   "Happy Gilmore",
+//   "Teresa Adams",
+//   500,
+//   "not read",
+// );
 
-console.log(`${Object.getPrototypeOf(perfectMurder) === Book.prototype}`);
+// perfectMurder.info();
+
+// console.log(`${Object.getPrototypeOf(perfectMurder) === Book.prototype}`);
