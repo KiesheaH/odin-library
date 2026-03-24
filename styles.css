@@ -256,7 +256,7 @@ h1 {
   color: #fff;
   border-radius: 30px;
 
-  position: absolute;
+  position: fixed;
   top: 1.75rem;
   right: 0.5rem;
   margin-right: 2.75rem;
