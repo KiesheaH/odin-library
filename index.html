@@ -77,7 +77,13 @@
           <label for="publishing-date"
             >PUBLISHING DATE <span class="asterisk">*</span></label
           >
-          <input type="date" id="publishing-date" required />
+          <input
+            type="text"
+            maxlength="4"
+            placeholder="YYYY"
+            id="publishing-date"
+            required
+          />
         </div>
 
         <!-- Buttons -->
@@ -93,7 +99,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p class="copyright">&#169; 2026</p>
+      <p class="copyright">&#169; <span class="date">&nbsp;</span></p>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"

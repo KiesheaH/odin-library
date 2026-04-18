@@ -2,21 +2,27 @@
 
 /* USER INTERFACE */
 const main = document.querySelector(".main");
-const addButton = document.querySelector(".add");
+const date = document.querySelector(".date");
 const library = [];
+
+const addButton = document.querySelector(".add");
+date.textContent = new Date().getFullYear();
 
 /* MODAL */
 const overlay = document.querySelector(".overlay");
 
 const form = document.querySelector(".form");
-const bookTitle = document.getElementById("book-title");
-const bookAuthor = document.getElementById("book-author");
-const bookFormat = document.getElementById("book-format");
-const bookPages = document.getElementById("page-count");
-const bookPublishing = document.getElementById("publishing-date");
+const formTitle = document.getElementById("book-title");
+const formAuthor = document.getElementById("book-author");
+const formFormat = document.getElementById("book-format");
+const formPages = document.getElementById("page-count");
+const formPublishing = document.getElementById("publishing-date");
 
+/* BUTTONS */
 const closeButton = document.querySelector(".close");
 const submitButton = document.querySelector(".btn-submit");
+
+/* BOOK CARDS */
 
 /* EVENT LISTENERS */
 addButton.addEventListener("click", function () {
@@ -25,31 +31,31 @@ addButton.addEventListener("click", function () {
 });
 
 closeButton.addEventListener("click", function () {
-  form.classList.remove("active");
-  overlay.classList.remove("active");
+  closeModal();
 });
 
 submitButton.addEventListener("click", function (e) {
   // prevents default behavior
   e.preventDefault();
 
-  //  creates book object
-  const book = new Book(
-    bookTitle.value,
-    bookAuthor.value,
-    bookFormat.value,
-    bookPages.value,
-    bookPublishing.value,
+  // create a new book object based on the information entered
+  let book = new Book(
+    formTitle.value,
+    formAuthor.value,
+    formFormat.value,
+    formPages.value,
+    formPublishing.value,
   );
 
+  book.id = crypto.randomUUID();
+
+  // pushes object to library resets user interface
   addBookToLibrary(book);
+  closeModal();
+  clearForm();
 
-  // console.log(book);
-  // console.log(addBookToLibrary);
-  // creates book element
+  // create book element
   const bookElement = document.createElement("div");
-  bookElement.classList.add("book");
-
   bookElement.innerHTML = `<div class="book-info">
           <h2 class="title">Title</h2>
           <div class="author">
@@ -77,11 +83,14 @@ submitButton.addEventListener("click", function (e) {
           </p>
         </div>
 
+        <!-- DELETE BUTTON -->
+        <button class="btn-delete" id="">Delete</button>
+
         <!-- RETURNED INFO -->
         <div class="return">
           <p>Returned on: <span class="date">&nbsp;</span></p>
           <div class="select-container">
-            <select name="status" class="select-box">
+            <select name="status" id="select-box">
               <option value="not-started" selected>Not Started</option>
               <option value="in-progress">In Progress</option>
               <option value="completed">Completed</option>
@@ -89,7 +98,28 @@ submitButton.addEventListener("click", function (e) {
           </div>
         </div>`;
 
+  // append node to the DOM
   main.appendChild(bookElement);
+
+  // add bookElement to the library interface
+  bookElement.classList.add("book");
+
+  // update the newly created book card with relevant information
+  const lastBook = library[library.length - 1];
+  bookElement.querySelector(".title").textContent = lastBook.title;
+  bookElement.querySelector(".author-name").textContent = lastBook.author;
+  bookElement.querySelector(".count").textContent = lastBook.pages;
+  bookElement.querySelector(".year").textContent = lastBook.publishing;
+
+  // removes card when selected
+  const deleteButton = bookElement.querySelector(".btn-delete");
+  deleteButton.setAttribute("id", lastBook.id);
+
+  deleteButton.addEventListener("click", function () {
+    const index = library.findIndex((obj) => obj.id === deleteButton.id);
+    library.splice(index, 1);
+    main.removeChild(bookElement);
+  });
 });
 
 /* OBJECT CONSTRUCTOR */
@@ -102,24 +132,24 @@ function Book(title, author, format, pages, publishing) {
   this.format = format;
   this.pages = pages;
   this.publishing = publishing;
-  // this.read = read;
-  // this.info = function () {
-  //   console.log(
-  //     `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`,
-  //   );
-  // };
 }
 
-/* ARRAY POPULATION */
-function addBookToLibrary(book) {}
+/* CLOSE MODAL */
+function closeModal() {
+  form.classList.remove("active");
+  overlay.classList.remove("active");
+}
 
-// const perfectMurder = new Book(
-//   "Happy Gilmore",
-//   "Teresa Adams",
-//   500,
-//   "not read",
-// );
+/* LIBRARY UPDATES */
+function addBookToLibrary(obj) {
+  library.push(obj);
+}
 
-// perfectMurder.info();
-
-// console.log(`${Object.getPrototypeOf(perfectMurder) === Book.prototype}`);
+/* CLEARS FORM VALUES */
+function clearForm() {
+  formTitle.value = "";
+  formAuthor.value = "";
+  formFormat.value = "";
+  formPages.value = "";
+  formPublishing.value = "";
+}

@@ -175,7 +175,7 @@ h1 {
   border: 2px solid black;
   border-radius: 7px;
   /* background-color: greenyellow; */
-  grid-template-areas: "title return" "author author" "pages pages" "publishing publishing";
+  grid-template-areas: "title return" "author author" "pages pages" "publishing btn-delete";
   padding: 1.25rem 1.5rem;
   align-content: space-evenly;
 }
@@ -223,6 +223,27 @@ h1 {
   height: 20px;
 }
 
+.btn-delete {
+  grid-area: btn-delete;
+  justify-self: center;
+  width: 5.5rem;
+  height: 1.95rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid rgb(250, 19, 19);
+  background-color: rgb(250, 19, 19);
+  color: white;
+}
+
+.btn-delete:hover {
+  transform: translateY(-1px);
+}
+
+.btn-delete:active {
+  transform: translateY(1px);
+}
+
 /* STATUS */
 .return {
   grid-area: return;
@@ -246,6 +267,14 @@ h1 {
   font-size: 1.065rem;
   text-align: center;
   outline: none;
+}
+
+.red {
+  background-color: rgb(255, 23, 23);
+}
+
+.yellow {
+  background-color: #ea7f15;
 }
 
 /* ADD BUTTON */
