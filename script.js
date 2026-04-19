@@ -48,6 +48,7 @@ submitButton.addEventListener("click", function (e) {
   );
 
   book.id = crypto.randomUUID();
+  book.read = false;
 
   // pushes object to library resets user interface
   addBookToLibrary(book);
@@ -118,10 +119,15 @@ submitButton.addEventListener("click", function (e) {
   });
 
   // change read status color
-  const readButton = bookElement.querySelector(".btn-status");
+  Book.prototype.readStatus = function () {
+    this.read = !this.read;
+  };
 
+  const readButton = bookElement.querySelector(".btn-status");
   readButton.addEventListener("click", function () {
+    lastBook.readStatus();
     readButton.classList.toggle("read");
+    console.log(library);
   });
 });
 
