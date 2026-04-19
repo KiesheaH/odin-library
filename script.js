@@ -61,8 +61,9 @@ submitButton.addEventListener("click", function (e) {
           <div class="author">
             <p>by <span class="author-name">&nbsp;</span></p>
           </div>
-          <p class="pages">Pages: <span class="count">&nbsp;</span></p>
         </div>
+
+        <p class="pages">Pages: <span class="count">&nbsp;</span></p>
 
         <!-- PUBLISHING -->
         <div class="publishing">
@@ -83,20 +84,15 @@ submitButton.addEventListener("click", function (e) {
           </p>
         </div>
 
-        <!-- DELETE BUTTON -->
-        <button class="btn-delete" id="">Delete</button>
+        <!-- BUTTONS BUTTON -->
+        <div class="buttons">
+          <!-- READ STATUS -->
+          <button class="btn-status">Read</button>
 
-        <!-- RETURNED INFO -->
-        <div class="return">
-          <p>Returned on: <span class="date">&nbsp;</span></p>
-          <div class="select-container">
-            <select name="status" id="select-box">
-              <option value="not-started" selected>Not Started</option>
-              <option value="in-progress">In Progress</option>
-              <option value="completed">Completed</option>
-            </select>
-          </div>
-        </div>`;
+          <!-- DELETE -->
+          <button class="btn-delete" id="">Delete</button>
+        </div>
+        `;
 
   // append node to the DOM
   main.appendChild(bookElement);
@@ -119,6 +115,13 @@ submitButton.addEventListener("click", function (e) {
     const index = library.findIndex((obj) => obj.id === deleteButton.id);
     library.splice(index, 1);
     main.removeChild(bookElement);
+  });
+
+  // change read status color
+  const readButton = bookElement.querySelector(".btn-status");
+
+  readButton.addEventListener("click", function () {
+    readButton.classList.toggle("read");
   });
 });
 

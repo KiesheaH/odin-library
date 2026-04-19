@@ -8,11 +8,6 @@
 body {
   display: flex;
   flex-direction: column;
-
-  /* height: 100vh;
-  /* width: 100vw;
-  grid-template-rows: 12vh 83vh 5vh;
-  grid-template-areas: "header" "main" "footer"; */
   position: relative;
 }
 
@@ -152,14 +147,11 @@ h1 {
 
 /* MAIN */
 .main {
-  /* background-color: orangered; */
   display: flex;
   flex-wrap: wrap;
   min-height: 82vh;
   width: 100%;
   gap: 4rem;
-  /* grid-template-columns: repeat(3, minmax(500px, 1fr));
-  grid-template-rows: repeat(3, minmax(500px, 1fr)); */
   justify-content: flex-start;
   padding: 5rem 12rem;
   background-color: rgb(243, 243, 243);
@@ -167,36 +159,31 @@ h1 {
 
 /* CARD */
 .book {
-  width: 28rem;
+  width: 25rem;
   height: 13.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.33fr 0.33fr 0.33fr;
+  background-color: #f0f0f0;
   border: 2px solid black;
   border-radius: 7px;
-  /* background-color: greenyellow; */
-  grid-template-areas: "title return" "author author" "pages pages" "publishing btn-delete";
-  padding: 1.25rem 1.5rem;
+  grid-template-areas: "book-info" "pages" "publishing" "buttons";
+  padding: 0.675rem 1.125rem;
   align-content: space-evenly;
+  justify-content: space-evenly;
 }
 
-.title,
-.author {
-  margin-bottom: 0.25rem;
+.book-info {
+  grid-area: book-info;
 }
 
 .title {
-  grid-area: title;
   font-size: 1.5rem;
-  grid-area: title;
-  /* background-color: #ea7f15; */
   align-self: center;
 }
 
 .author {
-  grid-area: author;
   font-size: 1.25rem;
-  /* background-color: aqua; */
 }
 
 .author-name {
@@ -206,16 +193,16 @@ h1 {
 .pages {
   grid-area: pages;
   font-size: 1.25rem;
-  /* background-color: gray; */
+  margin-right: 2.5rem;
 }
 
 /* PUBLISHING */
 .publishing {
   grid-area: publishing;
-  /* background-color: blueviolet; */
   display: flex;
   align-items: center;
   font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .publishing svg {
@@ -223,58 +210,48 @@ h1 {
   height: 20px;
 }
 
-.btn-delete {
-  grid-area: btn-delete;
-  justify-self: center;
-  width: 5.5rem;
-  height: 1.95rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: 1px solid rgb(250, 19, 19);
-  background-color: rgb(250, 19, 19);
-  color: white;
-}
-
-.btn-delete:hover {
-  transform: translateY(-1px);
-}
-
-.btn-delete:active {
-  transform: translateY(1px);
-}
-
-/* STATUS */
-.return {
-  grid-area: return;
-  /* background-color: rgb(43, 226, 98); */
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.return p {
-  margin-bottom: 0.25rem;
-  text-align: center;
-}
-
-.select-container {
+/* BUTTONS */
+.buttons {
+  grid-area: buttons;
   display: flex;
   justify-content: center;
 }
 
-.return select {
-  width: 80%;
-  font-size: 1.065rem;
-  text-align: center;
-  outline: none;
+.btn-delete,
+.btn-status {
+  justify-self: center;
+  width: 5.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
 }
 
-.red {
-  background-color: rgb(255, 23, 23);
+.btn-delete:hover,
+.btn-status:hover {
+  transform: translateY(-1px);
 }
 
-.yellow {
-  background-color: #ea7f15;
+.btn-delete:active,
+.btn-status:active {
+  transform: translateY(1px);
+}
+
+.btn-delete {
+  border: 1px solid rgb(250, 19, 19);
+  background-color: rgb(250, 19, 19);
+}
+
+.btn-status {
+  border: 1px solid rgb(182, 182, 182);
+  background-color: rgb(182, 182, 182);
+  margin-right: 5rem;
+}
+
+.read {
+  background-color: #00d647;
+  border: 1px solid #00d647;
 }
 
 /* ADD BUTTON */
