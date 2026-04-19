@@ -22,8 +22,6 @@ const formPublishing = document.getElementById("publishing-date");
 const closeButton = document.querySelector(".close");
 const submitButton = document.querySelector(".btn-submit");
 
-/* BOOK CARDS */
-
 /* EVENT LISTENERS */
 addButton.addEventListener("click", function () {
   form.classList.add("active");
@@ -46,9 +44,6 @@ submitButton.addEventListener("click", function (e) {
     formPages.value,
     formPublishing.value,
   );
-
-  book.id = crypto.randomUUID();
-  book.read = false;
 
   // pushes object to library resets user interface
   addBookToLibrary(book);
@@ -119,15 +114,10 @@ submitButton.addEventListener("click", function (e) {
   });
 
   // change read status color
-  Book.prototype.readStatus = function () {
-    this.read = !this.read;
-  };
-
   const readButton = bookElement.querySelector(".btn-status");
   readButton.addEventListener("click", function () {
     lastBook.readStatus();
     readButton.classList.toggle("read");
-    console.log(library);
   });
 });
 
@@ -141,7 +131,13 @@ function Book(title, author, format, pages, publishing) {
   this.format = format;
   this.pages = pages;
   this.publishing = publishing;
+  this.id = crypto.randomUUID();
+  this.read = false;
 }
+
+Book.prototype.readStatus = function () {
+  this.read = !this.read;
+};
 
 /* CLOSE MODAL */
 function closeModal() {
