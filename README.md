@@ -7,6 +7,7 @@ This project was built as part of the JavaScript course from The Odin Project.
 # 🔗 Live Preview
 
 Live Demo: https://kiesheah.github.io/odin-library/
+
 Repository: https://github.com/KiesheaH/odin-library
 
 # 🎯 Project Objectives
